@@ -1,18 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Search.css'
 import SearchIcon from "@material-ui/icons/Search"
 import MicIcon from "@material-ui/icons/Mic"
+import { Button } from "@material-ui/core"
 
 function Search() {
+  const [input, setInput] = useState('')
+  const search =  e => {
+      e.preventDefault()
+      console.log('You hit the search >>', input)
+  } 
   return (
-    <div className="search">
+    <form className="search">
         <div className="search__input">
             <SearchIcon className='search__inputIcon'/>
-            <input />
+            <input value={input} onChange={e => setInput(e.target.value)}/>
             <MicIcon />
         </div>
-
-    </div>
+        <div className="search__buttons">
+            <Button type='submit' onClick={search} variant="outlined">Qdrant Search</Button>
+            <Button variant="outlined">Vector Similarity Space </Button>
+        </div>
+    </form>
   )
 }
 
