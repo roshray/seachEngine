@@ -15,7 +15,7 @@ function Home() {
             </div>
 
             <div className="home__headerRight">
-                 <Link to='/gmail'>Gmail</Link>
+                 <Link to='/gmail'>Email</Link>
                  <Link to='/image'>Images</Link>
                  <AppsIcon />
                  <Avatar />
@@ -28,7 +28,7 @@ function Home() {
             alt="" 
           />
           <div className="home__inputContainer">
-            <Search />
+            <Search hideButtons />
           </div>
         </div>
     </div>
