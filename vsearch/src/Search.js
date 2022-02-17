@@ -7,7 +7,8 @@ import { useHistory} from "react-router-dom"
 import { useStateValue } from './StateProvider'
 import { actionTypes} from './reducer'
 
-function Search({ hideButtons =false}) {
+function Search({ hideButtons = false }) {
+  
   const [{}, dispatch] = useStateValue()
   
   const [input, setInput] = useState('')
