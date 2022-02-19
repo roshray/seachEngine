@@ -46,7 +46,7 @@ function SearchPage() {
                             </div>
                             <div className="searchPage__option">
                                 <ImageIcon />
-                                 <Link to='/images'>Images</Link>
+                                <Link to='/images'>Images</Link>
                             </div>
                             <div className="searchPage__option">
                                 <LocalOfferIcon />
