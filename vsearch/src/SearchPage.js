@@ -17,7 +17,7 @@ function SearchPage() {
     
     const [{ term }, dispatch] = useStateValue()
 
-    const { data } = useGoogleSearch()
+    const { data } = useGoogleSearch(term)
 
     console.log(data)
 
@@ -74,10 +74,34 @@ function SearchPage() {
                 </div>
             </div>           
         </div>
-
+        {term && (
         <div className="searchPage__results">
+            <p className="searchPage__resultCount">
+                About {data?.searchInformation.formattedSearchTime} results ({data?.searchInformation.formattedSearchTime} seconds ) for {term}
+            </p>
 
+            {data?.items.map(item => (
+                <div className="searchPage__result">
+                    <a href={item.link}>
+                        {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src && (
+                            <img 
+                                src={
+                                    item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src 
+                                 } 
+                             alt="" 
+                            />
+                        )}
+                        {item.displayLink}
+                    </a>
+
+                    <a href={item.link} className="searhPage__resultTitle">
+                        <h2>{item.title}</h2>
+                    </a>
+                    <p className="searchPage__resultSnippet">{item.snippet}</p>
+                </div>
+            ))}
         </div>
+        )}
     </div>
   )
 }
